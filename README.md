@@ -136,10 +136,10 @@ First install all requirments:
 
         bundle install --binstubs
 
-Install and configured your [gcloud-sdk](https://cloud.google.com/sdk/gcloud/). Create a google project, and stored the project id in an environmental variable called `GOOGLE_PROJECT_ID`. You must also have a Service account with the following roles:
-- Compute Network Admin
+Install and configure your [gcloud-sdk](https://cloud.google.com/sdk/gcloud/). Create a google project, and store the `project id` in an environmental variable called `GOOGLE_PROJECT_ID`. You must also have a `Service` account with the following roles:
+- `Compute Network Admin`
 
-After that, configure a service account with the roles documented above and export the JSON key. Create an enviromentable variable called `GOOGLE_APPLICATION_CREDENTIALS` and store the path location pointing to the JSON key.
+After that, configure the service account with the roles documented above and export the JSON key. Create an enviromentable variable called `GOOGLE_APPLICATION_CREDENTIALS` and store the path location pointing to the JSON key.
 
 Once that is done, execute the following command to run the test:
 
@@ -147,4 +147,4 @@ Once that is done, execute the following command to run the test:
 
 ## Collaboration
 
-Everyone is welcomed to collaborate and propose ideas. In fact I would love to hear from your input and recommendation. I'm fairly new to ruby and I would love your feedback!
+Everyone is welcome to collaborate and propose ideas. In fact I would love to hear from your input and recommendations. I'm fairly new to ruby and I would love your feedback! Also if you find anything funky with the documentation so far feel free to point it out, English is not my first language. 
