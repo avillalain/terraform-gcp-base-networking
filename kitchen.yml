@@ -1,0 +1,94 @@
+driver:
+  name: terraform
+  command_timeout: 1800
+
+provisioner:
+  name: terraform
+
+platforms:
+  - name: local
+
+suites:
+  - name: network_with_regional_routing_mode
+    driver:
+      root_module_directory: test/fixtures/network_with_regional_routing_mode
+    verifier:
+      name: terraform
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls: 
+            - inspec-gcp-network-baseline
+            - inspec-gcp-regional-routing-mode
+        - name: local
+          backend: local
+          controls:
+            - gcloud-network-baseline
+            - network-output
+  - name: network_with_global_routing_mode
+    driver:
+      root_module_directory: test/fixtures/network_with_global_routing_mode
+    verifier:
+      name: terraform
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls: 
+            - inspec-gcp-network-baseline
+            - inspec-gcp-global-routing-mode
+        - name: local
+          backend: local
+          controls:
+            - gcloud-network-baseline
+            - network-output
+  - name: network_without_default_routes
+    driver:
+      root_module_directory: test/fixtures/network_without_default_routes
+    verifier:
+      name: terraform
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls: 
+            - inspec-gcp-network-baseline
+            - inspec-gcp-routes
+        - name: local
+          backend: local
+          controls: 
+            - gcloud-network-baseline
+            - network-output
+  - name: network_with_subnets
+    driver:
+      root_module_directory: test/fixtures/network_with_subnets
+    verifier:
+      name: terraform
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls:
+            - inspec-gcp-network-baseline
+            - inspec-gcp-subnetwork
+        - name: local
+          backend: local
+          controls:
+            - gcloud-network-baseline
+            - gcloud-subnetwork
+            - network-output
+            - subnetworks-output
+  - name: network_with_routes
+    driver:
+      root_module_directory: test/fixtures/network_with_routes
+    verifier:
+      name: terraform
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls:
+            - inspec-gcp-network-baseline
+            - inspec-gcp-routes
+        - name: local
+          backend: local
+          controls:
+            - gcloud-network-baseline
+            - network-output
+            - routes-output

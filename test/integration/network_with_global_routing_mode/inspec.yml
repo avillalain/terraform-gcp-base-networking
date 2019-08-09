@@ -1,0 +1,18 @@
+name: global-mode
+title: Provision a single network with global routing mode
+license: MIT
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    version: ~> 0.11.0
+  - name: network-baseline
+    path: ../network_baseline
+  - name: outputs
+    path: ../outputs
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: network
+    required: true
+    type: any

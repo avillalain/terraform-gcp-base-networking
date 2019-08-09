@@ -1,0 +1,15 @@
+name: network-baseline
+title: Base controls for a google compute network
+summary: Check that a network exists and that default auto create subnetworks is disabled
+license: MIT
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    version: ~> 0.11.0
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: network
+    required: true
+    type: any

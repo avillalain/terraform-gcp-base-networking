@@ -1,0 +1,17 @@
+name: default-routes
+title: Provision a single network without default routes
+license: MIT
+summary: Provisions a single network without default routes
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    version: ~> 0.11.0
+  - name: network-baseline
+    path: ../network_baseline
+  - name: outputs
+    path: ../outputs
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  
