@@ -3,6 +3,7 @@
 A Terraform module for building a base network in GCP.
 
 It supports the creation of:
+
 - Google Virtual Private Network (VPC)
 - Subnets within the VPC
   - Secondary ranges can be specified per each subnetwork
@@ -13,6 +14,7 @@ It supports the creation of:
 This module is meant for use with Terraform 0.12. Please refer to the [upgrade guide](https://www.terraform.io/upgrade-guides/0-12.html) for more information.
 
 ## Usage
+
 Have a look at the examples inside the test fixture folder. However, you can incluided something like the following in your terraform configuration:
 
 ```hcl
@@ -112,6 +114,7 @@ As of Terraform 0.12.6, there is no way of specifying optional parameters for an
 The output of this module are the same content as the inputs, plus the `self_link` of the created resources
 
 ## File structure
+
 The project has the following folders and files:
 
 - /: root folder
@@ -124,6 +127,7 @@ The project has the following folders and files:
 ## Testing and documentation generation
 
 ### Requirements
+
 - [kitchen-terraform](https://github.com/newcontext-oss/kitchen-terraform)
 - [inspec-gcp](https://www.inspec.io/)
 - [gcloud](https://cloud.google.com/sdk/gcloud/)
@@ -134,16 +138,21 @@ The project has the following folders and files:
 
 First install all requirments:
 
-        bundle install --binstubs
+```bash
+bundle install --binstubs
+```
 
 Install and configure your [gcloud-sdk](https://cloud.google.com/sdk/gcloud/). Create a google project, and store the `project id` in an environmental variable called `GOOGLE_PROJECT_ID`. You must also have a `Service` account with the following roles:
+
 - `Compute Network Admin`
 
 After that, configure the service account with the roles documented above and export the JSON key. Create an enviromentable variable called `GOOGLE_APPLICATION_CREDENTIALS` and store the path location pointing to the JSON key.
 
 Once that is done, execute the following command to run the test:
 
-        TF_VAR_project_id=$GOOGLE_PROJECT_ID kitchen test
+```bash
+TF_VAR_project_id=$GOOGLE_PROJECT_ID kitchen test
+```
 
 ## Collaboration
 
