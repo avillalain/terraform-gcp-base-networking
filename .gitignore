@@ -37,4 +37,3 @@ Gemfile.lock
 # Terraform files
 **/terraform.tfstate.d
 **/.terraform
-terraform-247901-6a89b4a9d6ee.json

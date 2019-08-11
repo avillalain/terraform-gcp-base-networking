@@ -142,7 +142,7 @@ First install all requirments:
 bundle install --binstubs
 ```
 
-Install and configure your [gcloud-sdk](https://cloud.google.com/sdk/gcloud/). Create a google project, and store the `project id` in an environmental variable called `GOOGLE_PROJECT_ID`. You must also have a `Service` account with the following roles:
+Install and configure your [gcloud-sdk](https://cloud.google.com/sdk/gcloud/). Create a google project, and store the `project id` in an environmental variable called `GOOGLE_PROJECT`. You must also have a `Service` account with the following roles:
 
 - `Compute Network Admin`
 
