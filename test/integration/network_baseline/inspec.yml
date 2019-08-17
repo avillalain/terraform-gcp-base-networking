@@ -10,6 +10,9 @@ attributes:
   - name: project_id
     required: true
     type: string
-  - name: network
+  - name: network_name
     required: true
-    type: any
+    type: string
+  - name: description
+    required: true
+    type: string

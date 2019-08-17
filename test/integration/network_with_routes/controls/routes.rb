@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 project_id = attribute('project_id')
-routes = attribute('routes')
+routes = attribute('source_routes')
 
 include_controls 'network-baseline'
 include_controls 'outputs' do
   skip_control 'subnetworks-output'
-  skip_control 'routes-output'
 end
 
 control 'inspec-gcp-routes' do
@@ -17,12 +16,11 @@ control 'inspec-gcp-routes' do
       its('dest_range') { should eq route['destination_range'] }
       its('description') { should eq route['description'] }
       its('tags') { should eq route['tags'] }
-      its('priority') { should eq route['priority'] }
       its('next_hop_gateway') { should end_with(route['internet'] ? 'default-internet-gateway' : '') }
       its('next_hop_instance') { should eq(route['hop_instance'] ? route['hop_instance'] : nil) }
       its('next_hop_ip') { should eq(route['hop_ip'] ? route['hop_ip'] : nil) }
       its('next_hop_vpn_tunnel') { should eq(route['hop_vpn'] ? route['hop_vpn'] : nil) }
-      its('priority') { should eq route['priority'] }
+      its('priority') { should eq(route['priority'].to_i) }
     end
   end
 end

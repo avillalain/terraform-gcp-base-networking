@@ -13,10 +13,7 @@ attributes:
   - name: project_id
     required: true
     type: string
-  - name: network
-    required: true
-    type: any
-  - name: subnetworks
+  - name: source_subnetworks
     required: true
     type: any
     

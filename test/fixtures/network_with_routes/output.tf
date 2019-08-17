@@ -13,3 +13,15 @@ output "network" {
 output "routes" {
   value = module.network.routes
 }
+
+output "network_name" {
+  value = var.network_name
+}
+
+output "description" {
+  value = var.description
+}
+
+output "source_routes" {
+  value = var.routes
+}

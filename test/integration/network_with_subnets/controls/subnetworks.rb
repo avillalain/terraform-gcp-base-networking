@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 project_id = attribute('project_id')
-subnetworks = attribute('subnetworks')
-network = attribute('network')
+subnetworks = attribute('source_subnetworks')
 
 include_controls 'network-baseline'
 include_controls 'outputs' do
@@ -17,7 +16,6 @@ control 'inspec-gcp-subnetwork' do
       its('ip_cidr_range') { should eq subnetwork['cidr_range'] }
       its('private_ip_google_access') { should be subnetwork['private_access'] }
       its('region') { should end_with subnetwork['region'] }
-      its('network') { should eq network['self_link'] }
     end
   end
 end

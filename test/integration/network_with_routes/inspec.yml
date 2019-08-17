@@ -1,5 +1,5 @@
 name: routes
-title: Provision a single network with two routes
+title: Provision a single network with one routes
 license: MIT
 depends:
   - name: inspec-gcp
@@ -13,10 +13,7 @@ attributes:
   - name: project_id
     required: true
     type: string
-  - name: network
-    required: true
-    type: any
-  - name: routes
+  - name: source_routes
     type: any
     required: true
     

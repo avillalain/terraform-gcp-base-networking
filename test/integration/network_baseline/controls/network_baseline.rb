@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 project_id = attribute('project_id')
-network = attribute('network')
+network_name = attribute('network_name')
+description = attribute('description')
 
 control 'inspec-gcp-network-baseline' do
   title 'Google Compute Network Configuration'
 
-  describe google_compute_network(project: project_id, name: network['name']) do
+  describe google_compute_network(project: project_id, name: network_name) do
     it { should exist }
-    its('name') { should eq network['name'] }
+    its('name') { should eq network_name }
     its('auto_create_subnetworks') { should be false }
   end
 end
 
 control 'gcloud-network-baseline' do
-  describe command("gcloud compute networks describe #{network['name']} --project=#{project_id} --format=json") do
+  describe command("gcloud compute networks describe #{network_name} --project=#{project_id} --format=json") do
     let(:data) do
       if subject.exit_status == 0
         JSON.parse(subject.stdout)
@@ -23,17 +24,11 @@ control 'gcloud-network-baseline' do
     end
 
     describe 'description' do
-      it "should be #{network['description']}" do
+      it "should be #{description}" do
         expect(data).to include(
-          'description' => network['description']
+          'description' => description
         )
       end
-    end
-  end
-
-  describe "network output" do
-    it 'has a non empty self_link property' do
-      expect(network['self_link']).to_not be_empty
     end
   end
 end
