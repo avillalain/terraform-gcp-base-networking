@@ -119,8 +119,10 @@ The project has the following folders and files:
 - /: root folder
 - /test/fixtures: The fixture for our test harness, but it also serves as examples on how to use this module
 - /test: Folders with files for testing the module
-- /main.tf: main file for this module, contains all the resources to create
-- /variables.tf: all the variables for the module
+- /input.tf: file that contians the input definitions for this module
+- /network.tf: all resources and outpus for a vpc network
+- /subnetwork.tf: all resources and outputs for the subnetworks
+- /routes.tf: all resources and outputs for the routes
 - /output.tf: the outputs of the module
 
 ## Testing and documentation generation
@@ -155,4 +157,4 @@ TF_VAR_project_id=$GOOGLE_PROJECT_ID kitchen test
 
 ## Collaboration
 
-Everyone is welcome to collaborate and propose ideas. In fact I would love to hear from your input and recommendations. I'm fairly new to ruby and I would love your feedback! Also if you find anything funky with the documentation so far feel free to point it out, English is not my first language. 
+Everyone is welcome to collaborate and propose ideas. In fact I would love to hear from your input and recommendations. I'm fairly new to ruby and I would love your feedback! Also if you find anything funky with the documentation so far feel free to point it out, English is not my first language.
