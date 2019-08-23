@@ -15,12 +15,11 @@ This module is meant for use with Terraform 0.12. Please refer to the [upgrade g
 
 ## Usage
 
-Have a look at the examples inside the test fixture folder. However, you can incluided something like the following in your terraform configuration:
+Have a look at the examples inside the test fixture folder. However, you can include something like the following in your terraform configuration:
 
 ```hcl
 module "network" {
-    source  = "terraform-google-modules/network/google"
-    version = "~> 0.1.0"
+    source  = "github.com/avillalain/terraform-gcp-base-networking"
     network {
         name = "example-network"
         routing_mode = "GLOBAL"
